@@ -7,9 +7,10 @@ class Point3D
 
 		Point3D();
 		~Point3D();
-		Point3D(double);
+		Point3D(const double);
 		Point3D(double,double,double);
-
-		Vector3D operator-(Point3D);
-		Point3D operator+(Vector3D);
+		Point3D(const Point3D&);
+		Point3D& operator=(const Point3D&);
+		Vector3D operator-(Point3D) const;
+		Point3D operator+(Vector3D) const;
 };
