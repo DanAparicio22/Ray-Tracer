@@ -12,9 +12,9 @@ World::~World()
 	deleteObjects();
 	deleteLights();
 }
-void World::addGeometricObject(GeometricObject* ptr_objeto)
+void World::addGeometricObject(GeometricObject* ptr_object)
 {
-	objects.push_back(ptr_objeto);
+	objects.push_back(ptr_object);
 }
 
 void World::construct(void) {
@@ -27,8 +27,8 @@ void World::construct(void) {
 	sphere.stablishCenter(0.0);
 	sphere.stablishRadius(90);
 	SpotLight* ptrSpotLight = new SpotLight();
-	ptrSpotLight->stablishUbication(0.0, 160.0, 200.0);
-	ptrSpotLight->stablishColor(255.0, 0.0, 0.0);
+	ptrSpotLight->stablishUbication(150.0, 160.0, 200.0);
+	ptrSpotLight->stablishColor(0.0, 0.0, 0.0);
 	addLight(ptrSpotLight);
 }
 
