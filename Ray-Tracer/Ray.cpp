@@ -1,21 +1,20 @@
 #include "Ray.h"
 
-Ray::Ray()
-{
-	p.x = 0;
-	p.y = 0;
-	p.z = 0;
-	d.x = 0;
-	d.y = 0;
-	d.z = 1;
-}
+Ray::Ray() : p(0.0), v(0.0, 0.0, 1.0) {}
 
-Ray::~Ray()
-{
-}
+Ray::~Ray() {}
 
-Ray::Ray(Point3D q, Vector3D v)
+Ray::Ray(const Point3D & o, const Vector3D & d) : p(o), v(d) {}
+
+Ray::Ray(const Ray &r) : p(r.p), v(r.v) {}
+
+Ray & Ray::operator=(const Ray &rhs)
 {
-	p = q;
-	d = v;
+	if (this == &rhs)
+	{
+		return (*this);
+	}
+	p = rhs.p;
+	v = rhs.v;
+	return (*this);
 }

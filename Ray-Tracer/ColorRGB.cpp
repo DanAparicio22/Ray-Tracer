@@ -1,46 +1,51 @@
 #include "ColorRGB.h"
 
-ColorRGB::ColorRGB() 
+ColorRGB::ColorRGB() : r(0.0), g(0.0), b(0.0) {}
+
+ColorRGB::~ColorRGB() {}
+
+ColorRGB::ColorRGB(double a) : r(a), g(a), b(a) {}
+
+ColorRGB::ColorRGB(double r1, double g1, double b1) : r(r1), g(g1), b(b1) {}
+
+ColorRGB::ColorRGB(const ColorRGB &c) : r(c.r), g(c.g), b(c.b) {}
+
+ColorRGB ColorRGB::operator+(const ColorRGB& c) const
 {
-	r = 0;
-	g = 0;
-	b = 0;
+	return ColorRGB(r + c.r, g + c.g, b + c.b);
 }
 
-ColorRGB::~ColorRGB() 
+ColorRGB ColorRGB::operator*(const ColorRGB& c) const
 {
+	return ColorRGB(r * c.r, g * c.g, b * c.b);
 }
 
-ColorRGB::ColorRGB(double a) 
+ColorRGB ColorRGB::operator*(const double a) const
 {
-	r = a;
-	g = a;
-	b = a;
+	return ColorRGB(r*a, g*a, b*a);
 }
 
-ColorRGB::ColorRGB(double r1, double g1, double b1)
+ColorRGB ColorRGB::operator/(const double a) const
 {
-	r = r;
-	g = g;
-	b = b;
+	return ColorRGB(r / a, g / a, b / a);
 }
 
-ColorRGB ColorRGB::operator+(ColorRGB rgb)
+ColorRGB & ColorRGB::operator+=(const ColorRGB &c)
 {
-	return ColorRGB(r+rgb.r, g+rgb.g, b+rgb.b);
+	r += c.r;
+	g += c.g;
+	b += c.b;
+	return (*this);
 }
 
-ColorRGB ColorRGB::operator*(ColorRGB rgb)
+ColorRGB & ColorRGB::operator=(const ColorRGB &rhs)
 {
-	return ColorRGB(r * rgb.r, g * rgb.g, b * rgb.b);
-}
-
-ColorRGB ColorRGB::operator*(double color)
-{
-	return ColorRGB(r * color, g * color, b * color);
-}
-
-ColorRGB ColorRGB::operator/(double color)
-{
-	return ColorRGB(r / color, g / color, b / color);
+	if (this == &rhs)
+	{
+		return (*this);
+	}
+	r = rhs.r;
+	g = rhs.g;
+	b = rhs.b;
+	return (*this);
 }

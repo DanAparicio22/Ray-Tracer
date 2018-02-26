@@ -6,9 +6,10 @@ class Ray
 {
 	public:
 		Point3D p;
-		Vector3D d;
-
+		Vector3D v;
 		Ray();
 		~Ray();
-		Ray(Point3D, Vector3D);
+		Ray(const Point3D&, const Vector3D&);
+		Ray(const Ray&);
+		Ray& operator=(const Ray&);
 };
