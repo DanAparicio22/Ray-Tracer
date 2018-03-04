@@ -16,11 +16,11 @@ ColorRGB SolarSphere::trace_ray(const Ray& ray) const {
 		Vector3D l = sr.w.lights[0]->getDirection(sr);
 
 		ColorRGB c;
-		c.r = 1.00 * lightColor.r * std::max(0.0, n*l);
-		c.g = 0.81 * lightColor.g * std::max(0.0, n*l);
+		c.r = 0.80 * lightColor.r * std::max(0.0, n*l);
+		c.g = 0.25 * lightColor.g * std::max(0.0, n*l);
 		c.b = 0.00 * lightColor.b * std::max(0.0, n*l);
 		return (c);
 	}
 	else
-		return (white);
+		return (ColorRGB(0.69, 0.85, 1));
 }

@@ -19,9 +19,9 @@ void World::addGeometricObject(GeometricObject* ptr_object)
 
 void World::construct(void) {
 
-	vp.stablishRhor(800);
-	vp.stablishRver(700);
-	vp.stablishS(0.4);
+	vp.stablishRhor(1200);
+	vp.stablishRver(1200);
+	vp.stablishS(0.3);
 	font_color = white;
 	tracer_ptr = new SolarSphere(this);
 	sphere.stablishCenter(0.0);
@@ -35,7 +35,7 @@ void World::construct(void) {
 void World::drawScene() const
 {
 	Output output;
-	int dpi = 72;
+	int dpi = 78;
 	int n = vp.rHor * vp.rVer;
 	ColorRGB *colors = new ColorRGB[n];
 	ColorRGB pixelColor;
@@ -61,9 +61,9 @@ void World::drawScene() const
 	output.saveBmp("escena.bmp", Rhor, Rver, dpi, colors);
 }
 
-void World::addLight(Light* ptrLuz)
+void World::addLight(Light* ptrLight)
 {
-	lights.push_back(ptrLuz);
+	lights.push_back(ptrLight);
 }
 
 void World::deleteObjects(void) {
