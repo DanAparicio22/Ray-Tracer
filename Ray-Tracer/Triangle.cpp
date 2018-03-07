@@ -1,6 +1,10 @@
 #include "Triangle.h"
 
-Triangle::Triangle() : v0(100,0,0), v1(0,100,0), v2(0,0,100) {}
+Triangle::Triangle() : v0(-40.0,-40.0,-100.0), v1(60.0,-30.0,-100.0), v2(60.0,60.0,-90.0) 
+{
+	normal = (v1 - v0)*(v2 - v0);
+	normal.normalize();
+}
 
 Triangle::Triangle(Point3D& p0, Point3D& p1, Point3D& p2) : v0(p0), v1(p1), v2(p2) {}
 
@@ -62,7 +66,7 @@ bool Triangle::impact(const Ray &ray, double &tmin, ShadeRec &sr) const
 		return false;
 	}
 	tmin = t;
-	sr.normal = ((v1-v0) * (v2-v0)) / ((v1 - v0) * (v2 - v0));
+	sr.normal = normal;
 	sr.impactLocalPoint = ray.p + ray.v*t;
 	return true;
 }

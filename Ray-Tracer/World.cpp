@@ -26,12 +26,10 @@ void World::construct(void) {
 	tracer_ptr = new SolarSphere(this);
 	sphere.stablishCenter(0.0);
 	sphere.stablishRadius(90);
-	Point3D p1(100, 20, 30);
-	Point3D p2(150, 100, 50);
-	Point3D p3(50, 200, 100);
-	triangle.stablishPoints(p1,p2,p3);
+	//addFigure(&sphere);
+	//addFigure(&triangle);
 	SpotLight* ptrSpotLight = new SpotLight();
-	ptrSpotLight->stablishUbication(130, 150, 100);
+	ptrSpotLight->stablishUbication(0, 0, 100);
 	ptrSpotLight->stablishColor(0.0, 0.0, 0.0);
 	addLight(ptrSpotLight);
 }
@@ -68,6 +66,11 @@ void World::drawScene() const
 void World::addLight(Light* ptrLight)
 {
 	lights.push_back(ptrLight);
+}
+
+void World::addFigure(GeometricObject * figure)
+{
+	objects.push_back(figure);
 }
 
 void World::deleteObjects(void) {

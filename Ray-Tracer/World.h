@@ -28,6 +28,7 @@ class World
 		void construct();
 		void drawScene() const;
 		void addLight(Light* ptrLuz);
+		void addFigure(GeometricObject* figure);
 
 	private:
 		void deleteObjects(void);
