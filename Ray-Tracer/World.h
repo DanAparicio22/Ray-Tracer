@@ -8,6 +8,7 @@
 #include "Light.h"
 #include "SpotLight.h"
 #include "Output.h"
+#include "Triangle.h"
 #include <vector>
 using namespace std;
 
@@ -18,6 +19,7 @@ class World
 		ColorRGB font_color;
 		Tracer* tracer_ptr;
 		Sphere sphere;
+		Triangle triangle;
 		vector <Light*> lights;
 		vector <GeometricObject*> objects;
 		World();
@@ -26,6 +28,7 @@ class World
 		void construct();
 		void drawScene() const;
 		void addLight(Light* ptrLuz);
+		void addFigure(GeometricObject* figure);
 
 	private:
 		void deleteObjects(void);
