@@ -1,11 +1,20 @@
 #include "Triangle.h"
 
-Triangle::Triangle()
-{
-}
+Triangle::Triangle() : v0(100,0,0), v1(0,100,0), v2(0,0,100) {}
+
+Triangle::Triangle(Point3D& p0, Point3D& p1, Point3D& p2) : v0(p0), v1(p1), v2(p2) {}
+
+Triangle::Triangle(const Triangle & t): v0(t.v0), v1(t.v1), v2(t.v2) { }
 
 Triangle::~Triangle()
 {
+}
+
+void Triangle::stablishPoints(const Point3D & p1, const Point3D & p2, const Point3D &p3)
+{
+	v0 = p1;
+	v1 = p2;
+	v2 = p3;
 }
 
 bool Triangle::impact(const Ray &ray, double &tmin, ShadeRec &sr) const
@@ -18,14 +27,14 @@ bool Triangle::impact(const Ray &ray, double &tmin, ShadeRec &sr) const
 	double f = v0.y - v2.y;
 	double g = ray.v.y;
 	double h = v0.y - ray.p.y;
-	double l = v0.z - v1.z;
+	double i = v0.z - v1.z;
 	double j = v0.z - v2.z;
 	double k = ray.v.z;
 	double l = v0.z - ray.p.z;
 	double m = f * k - g * j;
 	double n = h * k - g * l;
 	double p = f * l - h * j;
-	double q = g * l - e * k;
+	double q = g * i - e * k;
 	double s = e * j - f * l;
 	double inv_denom = 1.0 / (a*m + b * q + c * s);
 	double e1 = d * m - b * n - c * p;
@@ -42,7 +51,7 @@ bool Triangle::impact(const Ray &ray, double &tmin, ShadeRec &sr) const
 	{
 		return false;
 	}
-	if (beta*gamma > 1.0) 
+	if (beta+gamma > 1.0) 
 	{
 		return false;
 	}
@@ -53,6 +62,20 @@ bool Triangle::impact(const Ray &ray, double &tmin, ShadeRec &sr) const
 		return false;
 	}
 	tmin = t;
-	//sr.normal
+	sr.normal = ((v1-v0) * (v2-v0)) / ((v1 - v0) * (v2 - v0));
 	sr.impactLocalPoint = ray.p + ray.v*t;
+	return true;
+}
+
+Triangle & Triangle::operator=(const Triangle &tri)
+{
+	if (this == &tri)
+	{
+		return (*this);
+	}
+	GeometricObject::operator=(tri);
+	v0 = tri.v0;
+	v1 = tri.v1;
+	v2 = tri.v2;
+	return (*this);
 }

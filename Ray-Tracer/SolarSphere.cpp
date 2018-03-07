@@ -10,7 +10,7 @@ ColorRGB SolarSphere::trace_ray(const Ray& ray) const {
 	ShadeRec sr(*world_ptr);
 	double t;
 	ColorRGB lightColor(1.0, 1.0, 1.0);
-	if (world_ptr->sphere.impact(ray, t, sr))
+	if (world_ptr->triangle.impact(ray, t, sr))
 	{
 		Vector3D n = sr.normal;
 		Vector3D l = sr.w.lights[0]->getDirection(sr);
