@@ -40,6 +40,7 @@ bool Triangle::impact(const Ray& ray, double& tmin, ShadeRec& sr) const
 		return false;
 	}
 
+	//--------------------------------------------
 	double r = e * l - h * i;
 	double e2 = a * n + d * q + c * r;
 	double gamma = e2 * inv_denom;

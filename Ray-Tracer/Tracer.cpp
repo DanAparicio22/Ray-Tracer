@@ -18,3 +18,8 @@ ColorRGB Tracer::trace_ray(const Ray& ray) const {
 ColorRGB Tracer::trace_ray(const Ray ray, const int depth) const {
 	return (black);
 }
+
+ColorRGB Tracer::trace_ray(const Ray &, Light * light) const
+{
+	return (black);
+}

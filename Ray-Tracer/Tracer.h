@@ -2,6 +2,7 @@
 #include "Constants.h"
 #include "Ray.h"
 #include "ColorRGB.h"
+#include "Light.h"
 #include <iostream>
 
 class World;
@@ -15,4 +16,5 @@ public:
 	virtual	~Tracer(void);
 	virtual ColorRGB trace_ray(const Ray&) const;
 	virtual ColorRGB trace_ray(const Ray, const int) const;
+	virtual ColorRGB trace_ray(const Ray&, Light* light) const;
 };

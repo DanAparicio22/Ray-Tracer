@@ -11,5 +11,5 @@ public:
 	VariousObjects();
 	VariousObjects(World*);
 	~VariousObjects();
-	virtual ColorRGB trace_ray(const Ray&) const;
+	virtual ColorRGB trace_ray(const Ray&, Light* light) const;
 };
