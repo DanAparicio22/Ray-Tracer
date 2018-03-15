@@ -1,31 +1,31 @@
 #include "Vector3D.h"
 
-Vector3D::~Vector3D() {}
-
-Vector3D::Vector3D() : x(0.0), y(0.0), z(0.0) {}
+Vector3D::Vector3D() :x(0.0), y(0.0), z(0.0) {}
 
 Vector3D::Vector3D(double a) : x(a), y(a), z(a) {}
 
-Vector3D::Vector3D(double a, double b, double c) : x(a), y(b), z(c) {}
+Vector3D::Vector3D(double x, double y, double z) : x(x), y(y), z(z) {}
 
-Vector3D::Vector3D(const Vector3D & vector) : x(vector.x), y(vector.y), z(vector.z) {}
+Vector3D::Vector3D(const Vector3D& v) : x(v.x), y(v.y), z(v.z) {}
 
-Vector3D Vector3D::operator*(double t) const 
+Vector3D::~Vector3D() {}
+
+Vector3D Vector3D::operator*(double t) const
 {
-	return Vector3D(x*t,y*t,z*t);
+	return (Vector3D(x * t, y * t, z * t));
 }
 
-double Vector3D::operator*(Vector3D vector) const
+double Vector3D::operator*(const Vector3D & v) const
 {
-	return x * vector.x + y * vector.y + z * vector.z;
+	return (x * v.x + y * v.y + z * v.z);
 }
 
-Vector3D Vector3D::operator+(const Vector3D & _v) const
+Vector3D Vector3D::operator+ (const Vector3D& _v)const
 {
 	return(Vector3D(x + _v.x, y + _v.y, z + _v.z));
 }
 
-Vector3D Vector3D::operator/(const double _a) const
+Vector3D Vector3D::operator/ (const double _a)const
 {
 	return (Vector3D(x / _a, y / _a, z / _a));
 }
@@ -34,6 +34,14 @@ Vector3D& Vector3D::hat(void) {
 	double length = sqrt(x * x + y * y + z * z);
 	x /= length; y /= length; z /= length;
 	return (*this);
+}
+
+void Vector3D::normalize()
+{
+	double Length = sqrt(x * x + y * y + z * z);
+	x /= Length;
+	y /= Length;
+	z /= Length;
 }
 
 void Vector3D::show()
@@ -47,11 +55,6 @@ void Vector3D::show()
 	cout << " >";
 }
 
-void Vector3D::normalize() 
-{
-	double length = sqrt(x * x + y * y + z * z);
-	x /= length;
-	y /= length;
-	z /= length;
+Vector3D Vector3D::operator^(const Vector3D& v) const {
+	return (Vector3D(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x));
 }
-

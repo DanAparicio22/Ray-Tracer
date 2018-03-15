@@ -1,10 +1,10 @@
 #include "ViewPlane.h"
 
-ViewPlane::ViewPlane() : rVer(400), rHor(400), s(1.0) {}
+ViewPlane::ViewPlane() :rVer(400), rHor(400), s(1.0) {}
 
-ViewPlane::ViewPlane(const ViewPlane& vp) : rVer(vp.rVer), rHor(vp.rHor), s(vp.s) {}
+ViewPlane::ViewPlane(const ViewPlane& vp): rVer(vp.rVer), rHor(vp.rHor), s(vp.s) {}
 
-ViewPlane::ViewPlane(int rVer1, int rHor1, double s1) : rVer(rVer1), rHor(rHor1), s(s1) {}
+ViewPlane::ViewPlane(int _Rver, int _Rhor, double _s) : rVer(_Rver), rHor(_Rhor), s(_s) {}
 
 ViewPlane::~ViewPlane() {}
 
@@ -20,17 +20,17 @@ ViewPlane& ViewPlane::operator=(const ViewPlane& rhs)
 	return (*this);
 }
 
-void ViewPlane::stablishRhor(const int rHor1)
+void ViewPlane::stablishRhor(const int _Rhor)
 {
-	rHor = rHor1;
+	rHor = _Rhor;
 }
 
-void ViewPlane::stablishRver(const int rVer1)
+void ViewPlane::stablishRver(const int _Rver)
 {
-	rVer = rVer1;
+	rVer = _Rver;
 }
 
-void ViewPlane::stablishS(const float s1)
+void ViewPlane::stablishS(const float _s)
 {
-	s = s1;
+	s = _s;
 }

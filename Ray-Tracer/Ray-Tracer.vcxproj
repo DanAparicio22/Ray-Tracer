@@ -124,11 +124,11 @@
     <ClInclude Include="Point3D.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="ShadeRec.h" />
-    <ClInclude Include="SolarSphere.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="SpotLight.h" />
     <ClInclude Include="Tracer.h" />
     <ClInclude Include="Triangle.h" />
+    <ClInclude Include="VariousObjects.h" />
     <ClInclude Include="Vector3D.h" />
     <ClInclude Include="ViewPlane.h" />
     <ClInclude Include="World.h" />
@@ -143,11 +143,11 @@
     <ClCompile Include="Point3D.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="ShadeRec.cpp" />
-    <ClCompile Include="SolarSphere.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="SpotLight.cpp" />
     <ClCompile Include="Tracer.cpp" />
     <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="VariousObjects.cpp" />
     <ClCompile Include="Vector3D.cpp" />
     <ClCompile Include="ViewPlane.cpp" />
     <ClCompile Include="World.cpp" />

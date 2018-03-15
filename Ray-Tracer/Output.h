@@ -10,10 +10,10 @@
 #include <stdio.h>
 #include <time.h>
 
-class Output 
+class Output
 {
-	public:
-		Output();
-		~Output();
-		void saveBmp(const char*, int, int, int, ColorRGB*);
+public:
+	Output();
+	~Output();
+	void saveBmp(const char*, int, int, int, ColorRGB*);
 };

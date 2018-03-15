@@ -6,10 +6,10 @@
 
 class Light
 {
-	public:
-		Light();
-		virtual ~Light();
-		Light& operator=(const Light&);
-		virtual Vector3D getDirection(ShadeRec&) = 0;
-		virtual ColorRGB L(ShadeRec&);
+public:
+	Light();
+	virtual ~Light();
+	Light& operator=(const Light&);
+	virtual Vector3D getDirection(ShadeRec&) = 0;
+	virtual ColorRGB L(ShadeRec&);
 };

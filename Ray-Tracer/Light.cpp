@@ -12,6 +12,7 @@ Light& Light::operator=(const Light& rhs)
 	return (*this);
 }
 
-ColorRGB Light::L(ShadeRec& s) {
+ColorRGB Light::L(ShadeRec& s) 
+{
 	return (black);
 }

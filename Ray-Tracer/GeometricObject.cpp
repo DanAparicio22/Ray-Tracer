@@ -1,8 +1,8 @@
 #include "GeometricObject.h"
 
-GeometricObject::GeometricObject() : color(black) {}
+GeometricObject::GeometricObject() :color(black) {}
 
-GeometricObject::GeometricObject(const GeometricObject& obj) : color(obj.color) {}
+GeometricObject::GeometricObject(const GeometricObject& _o) : color(_o.color) {}
 
 GeometricObject::~GeometricObject() {}
 
@@ -16,16 +16,16 @@ GeometricObject& GeometricObject::operator=(const GeometricObject& rhs)
 	return (*this);
 }
 
-void GeometricObject::stablishColor(const ColorRGB& c)
+void GeometricObject::stablishColor(const ColorRGB& _c)
 {
-	color = c;
+	color = _c;
 }
 
-void GeometricObject::stablishColor(const float r, const float g, const float b)
+void GeometricObject::stablishColor(const float _r, const float _g, const float _b)
 {
-	color.r = r;
-	color.g = g;
-	color.b = b;
+	color.r = _r;
+	color.g = _g;
+	color.b = _b;
 }
 
 ColorRGB GeometricObject::getColor()
