@@ -1,12 +1,12 @@
 #include "SpotLight.h"
 
-SpotLight::SpotLight() : Light(), ls(1.0), color(1.0), ubication(0, 1, 0) {}
+SpotLight::SpotLight(): Light(), ls(1.0), color(1.0), ubicacion(0, 1, 0) {}
 
 SpotLight::~SpotLight() {}
 
 Vector3D SpotLight::getDirection(ShadeRec& sr)
 {
-	return (ubication - sr.impactLocalPoint).hat();
+	return (ubicacion - sr.impactLocalPoint).hat();
 }
 
 ColorRGB SpotLight::L(ShadeRec& sr)
@@ -28,12 +28,12 @@ void SpotLight::stablishColor(float r, float g, float b)
 
 void SpotLight::stablishUbication(Point3D p)
 {
-	ubication = p;
+	ubicacion = p;
 }
 
 void SpotLight::stablishUbication(float x, float y, float z)
 {
-	ubication.x = x;
-	ubication.y = y;
-	ubication.z = z;
+	ubicacion.x = x;
+	ubicacion.y = y;
+	ubicacion.z = z;
 }

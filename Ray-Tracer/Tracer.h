@@ -2,17 +2,17 @@
 #include "Constants.h"
 #include "Ray.h"
 #include "ColorRGB.h"
-class World; 
+#include <iostream>
 
-class Tracer
-{
-	public:
-		Tracer(void);
-		Tracer(World* _world_ptr);
-		virtual	~Tracer(void);
-		virtual ColorRGB trace_ray(const Ray& ray) const;
-		virtual ColorRGB trace_ray(const Ray ray, const int depth) const;
+class World;
 
-	protected:
-		World * world_ptr;
+class Tracer {
+protected:
+	World * world_ptr;
+public:
+	Tracer();
+	Tracer(World*);
+	virtual	~Tracer(void);
+	virtual ColorRGB trace_ray(const Ray&) const;
+	virtual ColorRGB trace_ray(const Ray, const int) const;
 };

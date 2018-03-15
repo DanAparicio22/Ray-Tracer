@@ -8,15 +8,15 @@
 
 class GeometricObject
 {
-	public:
-		GeometricObject();
-		GeometricObject(const GeometricObject&);
-		virtual ~GeometricObject();
-		virtual bool impact(const Ray&, double&, ShadeRec&) const = 0;
-		void stablishColor(const ColorRGB&);
-		void stablishColor(const float, const float, const float);
-		ColorRGB getColor(void);
-	protected:
-		ColorRGB   color;
-		GeometricObject& operator= (const GeometricObject&);
+protected:
+	ColorRGB   color;
+	GeometricObject& operator= (const GeometricObject&);
+public:
+	GeometricObject();
+	GeometricObject(const GeometricObject&);
+	virtual ~GeometricObject();
+	virtual bool impact(const Ray&, double&, ShadeRec&)const = 0;
+	void stablishColor(const ColorRGB&);
+	void stablishColor(const float, const float, const float);
+	ColorRGB getColor();
 };
