@@ -3,6 +3,7 @@
 #include "Ray.h"
 #include "ColorRGB.h"
 #include <iostream>
+#include "Light.h"
 
 class World;
 

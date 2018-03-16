@@ -13,9 +13,10 @@ ColorRGB VariousObjects::trace_ray(const Ray& ray)const
 	ColorRGB colorLuz(1.0, 0.4, 0.1);
 	if (sr.impactAnObject)
 	{
-		sr.color.r = 0.72 * colorLuz.r * std::max(0.0, sr.normal*sr.world.lights[0]->getDirection(sr));
-		sr.color.g = 0.72 * colorLuz.g * std::max(0.0, sr.normal*sr.world.lights[0]->getDirection(sr));
-		sr.color.b = 0.72 * colorLuz.b * std::max(0.0, sr.normal*sr.world.lights[0]->getDirection(sr));
+
+		sr.color.r = sr.color.r * std::max(0.0, sr.normal*world_ptr->lights[0]->getDirection(sr));
+		sr.color.g = sr.color.g * std::max(0.0, sr.normal*world_ptr->lights[0]->getDirection(sr));
+		sr.color.b = sr.color.b * std::max(0.0, sr.normal*world_ptr->lights[0]->getDirection(sr));
 		return (sr.color);
 	}
 	else
